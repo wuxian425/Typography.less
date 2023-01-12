@@ -1,0 +1,23 @@
+{
+  "name": "typo.less",
+  "version": "1.0.0",
+  "description": "让文档更好阅读的 CSS，拥有暗色模式适配。",
+  "main": "index.js",
+  "scripts": {
+    "build": "lessc index.less dist/typo.less.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wuxian425/Typography.less.git"
+  },
+  "author": "BobYang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuxian425/Typography.less/issues"
+  },
+  "homepage": "https://github.com/wuxian425/Typography.less#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

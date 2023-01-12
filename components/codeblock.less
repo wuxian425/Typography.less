@@ -1,0 +1,56 @@
+
+/*
+	Typography.less - CodeBlock
+*/
+
+// 亮與暗模式
+:root {
+	--typo-codeblock-background-color: @typo-codeblock-background-color;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-codeblock-background-color: @typo-codeblock-background-color-dark;
+	}
+}
+
+.code {
+	box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+
+	background-color: var(--typo-codeblock-background-color);
+	display: flex;
+	margin: @typo-codeblock-margin;
+	padding: @typo-codeblock-padding;
+}
+
+.code:before,
+.code:after {
+	display: table;
+	content: '';
+	clear: both;
+}
+
+.code pre {
+	align-items: stretch;
+	flex: 1;
+	justify-items: stretch;
+	padding: @typo-codeblock-pre-padding;
+}
+
+.code pre code {
+	display: block;
+	min-height: 80px;
+	max-height: 200px;
+	padding: 4px;
+}
+
+.code pre:nth-child(1) {
+	border-right: 1px solid #DDDDDD;
+}
+
+.code div {
+	color: #888888;
+	font-family: 'Inconsolata', Consolas, monospace;
+	font-size: 10px;
+}

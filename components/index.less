@@ -1,0 +1,46 @@
+
+/*
+	Typography.less - Index
+*/
+
+// 亮與暗模式
+:root {
+	--typo-index-background-color: @typo-index-background-color;
+	--typo-index-box-shadow: @typo-index-box-shadow;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-index-background-color: @typo-index-background-color-dark;
+		--typo-index-box-shadow: @typo-index-box-shadow-dark;
+	}
+}
+
+@media (min-width: @typo-index-min-width) {
+	.@{typo-class-name} {
+		.index {
+			background-color: var(--typo-index-background-color);
+			box-shadow: var(--typo-index-box-shadow);
+			overflow-x: scroll;
+			overflow-y: auto;
+			padding: @typo-index-padding;
+			scrollbar-width: thin;
+			width: @typo-index-width;
+			z-index: 1;
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+		}
+
+		.index:hover {
+			left: 0;
+		}
+
+		.index::-webkit-scrollbar {
+			width: @typo-index-scrollbar-width;
+			height: @typo-index-scrollbar-width;
+		}
+	}
+}

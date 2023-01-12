@@ -1,0 +1,126 @@
+
+/*
+	Typography.less - Block Style
+*/
+
+// 亮與暗模式
+:root {
+	--typo-title-border-bottom: @typo-title-border-bottom;
+	--typo-title-before-content-color: @typo-title-before-content-color;
+	--typo-code-background-color: @typo-code-background-color;
+	--typo-code-box-shadow: @typo-code-box-shadow;
+	--typo-hr-border: @typo-hr-border;
+	--typo-img-box-shadow: @typo-img-box-shadow;
+	--typo-blockquote-border-left: @typo-blockquote-border-left;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-title-border-bottom: @typo-title-border-bottom-dark;
+		--typo-title-before-content-color: @typo-title-before-content-color-dark;
+		--typo-code-background-color: @typo-code-background-color-dark;
+		--typo-code-box-shadow: @typo-code-box-shadow-dark;
+		--typo-hr-border: @typo-hr-border-dark;
+		--typo-img-box-shadow: @typo-img-box-shadow-dark;
+		--typo-blockquote-border-left: @typo-blockquote-border-left-dark;
+	}
+}
+
+.@{typo-class-name} {
+	// 標題
+	h1, h2, h3, h4, h5, h6 {
+		border-bottom: var(--typo-title-border-bottom);
+		font-weight: @typo-title-font-weight;
+		line-height: @typo-title-line-height;
+		margin-top: @typo-title-margin-top;
+		margin-bottom: @typo-title-margin-bottom;
+	}
+
+	h1:before {color: var(--typo-title-before-content-color); content: @typo-title-h1-before-content;}
+	h2:before {color: var(--typo-title-before-content-color); content: @typo-title-h2-before-content;}
+	h3:before {color: var(--typo-title-before-content-color); content: @typo-title-h3-before-content;}
+	h4:before {color: var(--typo-title-before-content-color); content: @typo-title-h4-before-content;}
+	h5:before {color: var(--typo-title-before-content-color); content: @typo-title-h5-before-content;}
+	h6:before {color: var(--typo-title-before-content-color); content: @typo-title-h6-before-content;}
+
+	// 標題縮進
+	h1 + div,
+	h2 + div,
+	h3 + div,
+	h4 + div,
+	h5 + div,
+	h6 + div {
+		margin-top: @typo-title-indent-margin-top;
+		margin-left: @typo-title-indent-margin-left;
+		padding: @typo-title-indent-padding;
+	}
+
+	// 代碼塊
+	pre {
+		box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+
+		background-color: var(--typo-code-background-color);
+		border-radius: @typo-code-border-radius;
+		box-shadow: var(--typo-code-box-shadow);
+		overflow-x: auto;
+		padding: @typo-code-padding;
+
+		// 代碼塊本體
+		code {
+			box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+
+			display: block;
+			font-family: @typo-code-font-family;
+			font-size: @typo-code-font-size;
+			overflow-y: auto;
+			// 代碼滾動條（Firefox系）
+			scrollbar-width: thin;
+		}
+
+		// 代碼滾動條（Webkit系）
+		code::-webkit-scrollbar {
+			width: @typo-code-scrollbar-width;
+			height: @typo-code-scrollbar-width;
+		}
+	}
+
+	// 分隔線
+	hr {
+		border: none;
+		border-top: var(--typo-hr-border);
+		height: 1px;
+		margin: @typo-hr-margin;
+	}
+
+	// 行
+	p {
+		margin: @typo-p-margin;
+	}
+
+	// 圖片
+	img {
+		border-radius: @typo-img-border-radius;
+		box-shadow: var(--typo-img-box-shadow);
+	}
+
+	// 引用
+	blockquote {
+		border-left: var(--typo-blockquote-border-left);
+		padding: @typo-blockquote-padding;
+	}
+
+	// 頁腳
+	footer {
+		color: @typo-footer-color;
+		font-size: @typo-footer-font-size;
+		margin: @typo-footer-margin;
+	}
+
+	// 列表
+	ul {
+		padding-top: 2px;
+		padding-left: 20px;
+	}
+}

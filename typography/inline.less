@@ -1,0 +1,62 @@
+
+/*
+	Typography.less - Inline Style
+*/
+
+// 亮與暗模式
+:root {
+	--typo-a-color: @typo-a-color;
+	--typo-a-hover-color: @typo-a-hover-color;
+	--typo-b-text-shadow: @typo-b-text-shadow;
+	--typo-mark-background-color: @typo-mark-background-color;
+	--typo-mark-color: @typo-mark-color;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-a-color: @typo-a-color-dark;
+		--typo-a-hover-color: @typo-a-hover-color-dark;
+		--typo-b-text-shadow: @typo-b-text-shadow-dark;
+		--typo-mark-background-color: @typo-mark-background-color-dark;
+		--typo-mark-color: @typo-mark-color-dark;
+	}
+}
+
+.@{typo-class-name} {
+	// 超鏈接
+	a {
+		color: var(--typo-a-color);
+		text-decoration: @typo-a-text-decoration;
+
+		&:hover {
+			color: var(--typo-a-hover-color);
+			text-decoration: @typo-a-hover-text-decoration;
+		}
+	}
+
+	// 粗體
+	b,strong {
+		font-weight: bold;
+		text-shadow: var(--typo-b-text-shadow);
+	}
+
+	// 斜體
+	i {
+		font-style: italic;
+	}
+
+	// 標記
+	mark {
+		background-color: var(--typo-mark-background-color);
+		border-radius: @typo-mark-border-radius;
+		display: inline-block;
+		line-height: 1;
+		margin: @typo-mark-margin;
+		padding: @typo-mark-padding;
+	}
+
+	// 小字
+	small {
+		font-size: @typo-small-font-size;
+	}
+}

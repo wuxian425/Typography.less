@@ -1,0 +1,221 @@
+
+/*
+	Typography.less - Customize
+*/
+
+/*
+	引入字體，
+	預設的內文字體為 Loto + Noto Sans SC （思源黑體），
+	代碼字體為 Inconsolata。
+*/
+// Tips. 更換引入字體後記得去 字體 修改 font-family。
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans+SC:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+/* 全局樣式 */
+	// 應用樣式的 Class 名稱，預設為 typo。
+	@typo-class-name: typo;
+
+	// 樣式容器邊界，預設為 x 軸 12px，y 軸 48px。
+	// Tips. 當容器被應用在 body 時不僅有 padding，還會自動置中。
+	@typo-container-padding: 24px 16px;
+
+	// 樣式容器最大寬度，只有在樣式被應用於 body 時才會生效。
+	// 如果不需要自動置中，可以設置為 none。
+	@typo-container-max-width: 1000px;
+
+	// 背景顏色，可使用 HEX, RGB 等表現方式。
+	@typo-background-color: #F8F8F8;
+	@typo-background-color-dark: #363636;
+
+	// 文本顏色，可使用 HEX, RGB 等表現方式。
+	@typo-text-color: #363636;
+	@typo-text-color-dark: #F2F2F2;
+
+	// 字體
+	@typo-font-family: 'Lato', 'Noto Sans SC', sans-serif;
+
+	// 字體大小
+	@typo-font-size: 14px;
+
+	// 字距
+	@typo-letter-spacing: 0.9px;
+
+	// 行高
+	@typo-line-height: 1.4;
+
+	// 動畫速度
+	@typo-transition: 0.3s;
+
+/* 塊狀元素 */
+	// 標題
+		// 框線
+		@typo-title-border-bottom: 1px solid #EEEEEE;
+		@typo-title-border-bottom-dark: 1px solid #666666;
+
+		// 字重
+		@typo-title-font-weight: 700;
+
+		// 行高
+		@typo-title-line-height: 0.9;
+
+		// 外邊距
+		@typo-title-margin-top: 28px;
+		@typo-title-margin-bottom: 16px;
+
+		// 標題前文字
+		@typo-title-before-content-color: #DDDDDD;
+		@typo-title-before-content-color-dark: #DDDDDD;
+		@typo-title-h1-before-content: '# ';
+		@typo-title-h2-before-content: '## ';
+		@typo-title-h3-before-content: '### ';
+		@typo-title-h4-before-content: '#### ';
+		@typo-title-h5-before-content: '##### ';
+		@typo-title-h6-before-content: '';
+
+	// 標題縮進
+		// 縮進間距
+		@typo-title-indent-margin-top: 16px;
+		@typo-title-indent-margin-left: 16px;
+
+		// 縮進內容內距
+		@typo-title-indent-padding: 0;
+
+	// 代碼塊
+		// 背景顏色
+		@typo-code-background-color: #F4F4F4;
+		@typo-code-background-color-dark: #484848;
+		// 圓角
+		@typo-code-border-radius: 4px;
+		// 陰影
+		@typo-code-box-shadow: 0;
+		@typo-code-box-shadow-dark: 0;
+		// 字體
+		@typo-code-font-family: 'Inconsolata', Consolas, 'Noto Sans SC', monospace;
+		// 字體大小
+		@typo-code-font-size: 14px;
+		// 內距
+		@typo-code-padding: 16px;
+		// 滾動條粗細（僅Webkit系瀏覽器可用）
+		@typo-code-scrollbar-width: 8px;
+
+	// 分隔線
+		// 邊框
+		@typo-hr-border: 1px solid #CCCCCC;
+		@typo-hr-border-dark: 1px solid #CCCCCC;
+		// 內邊距
+		@typo-hr-margin: 16px 0;
+
+	// 行
+		// 外邊距
+		@typo-p-margin: 6px 2px;
+
+	// 圖片
+		// 圓角
+		@typo-img-border-radius: 4px;
+		@typo-img-box-shadow: 0 2px 4px #DDDDDD;
+		@typo-img-box-shadow-dark: 0 2px 4px #DDDDDD;
+
+	// 引用
+		// 邊框
+		@typo-blockquote-border-left: 4px solid #CCCCCC;
+		@typo-blockquote-border-left-dark: 4px solid #CCCCCC;
+		// 內邊距
+		@typo-blockquote-padding: 12px;
+
+	// 頁腳
+		// 文字顏色
+		@typo-footer-color: #BBBBBB;
+		@typo-footer-color-dark: #BBBBBB;
+		// 字體大小
+		@typo-footer-font-size: 12px;
+		// 外邊距
+		@typo-footer-margin: 16px 4px;
+
+/* 行內元素 */
+	// 超鏈接
+		// 顏色
+		@typo-a-color: #909095;
+		@typo-a-color-dark: #AAAAAA;
+		// 底線，不使用填 none，使用則填 underline。
+		// 具體可見 MDN！
+		@typo-a-text-decoration: none;
+		// 鼠標 Hover 時的顏色
+		@typo-a-hover-color: #888888;
+		@typo-a-hover-color-dark: #888888;
+		// 鼠標 Hover 時的底線
+		@typo-a-hover-text-decoration: underline;
+
+	// 強調
+		// 文字陰影
+		@typo-b-text-shadow: 0 1px 4px #DDDDDD;
+		@typo-b-text-shadow-dark: 0 1px 4px #DDDDDD;
+
+	// 斜體
+		// 無可供設置之變量。
+
+	// 標記
+		// 背景顏色
+		@typo-mark-background-color: #f8aa66;
+		@typo-mark-background-color-dark: #fbcc77;
+		// 圓角
+		@typo-mark-border-radius: 4px;
+		// 文本顏色
+		@typo-mark-color: #121212;
+		@typo-mark-color-dark: #121212;
+		// 外邊距
+		@typo-mark-margin: 2px 4px;
+		// 內邊距
+		@typo-mark-padding: 2px 6px;
+
+	// 小字
+		// 字體大小
+		@typo-small-font-size: 12px;
+
+/* 組件 */
+	// 按鈕
+		// 背景顏色
+		@typo-button-background-color: #FBFBFB;
+		@typo-button-background-color-dark: #646464;
+		// 圓角
+		@typo-button-border-radius: 4px;
+		// 陰影
+		@typo-button-box-shadow: 0 2px 4px #DDDDDD;
+		@typo-button-box-shadow-dark: 0 2px 4px #484848;
+		// 文字顏色
+		@typo-button-color: inherit;
+		@typo-button-color-dark: inherit;
+		// 內邊距
+		@typo-button-padding: 4px 8px;
+
+		// 背景顏色
+		@typo-button-hover-background-color: #F6F6F6;
+		@typo-button-hover-background-color-dark: #565656;
+
+	// 目錄
+		// 背景顏色
+		@typo-index-background-color: #F6F6F6;
+		@typo-index-background-color-dark: #424242;
+		// 陰影
+		@typo-index-box-shadow: 4px 0 16px #EEEEEE;
+		@typo-index-box-shadow-dark: 4px 0 16px #484848;
+		// 顯示側邊目錄的最小值
+		@typo-index-min-width: 1540px;
+		// 內邊距
+		@typo-index-padding: 20px;
+		// 寬度
+		@typo-index-width: 220px;
+		// 滾動條粗細（僅Webkit系瀏覽器可用）
+		@typo-index-scrollbar-width: 8px;
+
+	// 雙欄代碼塊
+		// 背景顏色
+		@typo-codeblock-background-color: @typo-code-background-color;
+		@typo-codeblock-background-color-dark: @typo-code-background-color-dark;
+		// 外間距
+		@typo-codeblock-margin: 8px 0;
+		// 內間距
+		@typo-codeblock-padding: 12px 8px;
+		// pre 內間距
+		@typo-codeblock-pre-padding: 8px;
+
+

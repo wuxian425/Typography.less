@@ -1,0 +1,38 @@
+
+/*
+	Typography.less - Button
+*/
+
+// 亮與暗模式
+:root {
+	--typo-button-background-color: @typo-button-background-color;
+	--typo-button-hover-background-color: @typo-button-hover-background-color;
+	--typo-button-box-shadow: @typo-button-box-shadow;
+	--typo-button-color: @typo-button-color;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-button-background-color: @typo-button-background-color-dark;
+		--typo-button-hover-background-color: @typo-button-hover-background-color-dark;
+		--typo-button-box-shadow: @typo-button-box-shadow-dark;
+		--typo-button-color: @typo-button-color-dark;
+	}
+}
+
+// 按鈕
+.@{typo-class-name}-btn {
+	background-color: var(--typo-button-background-color);
+	border-radius: @typo-button-border-radius;
+	box-shadow: var(--typo-button-box-shadow);
+	color: var(--typo-button-color);
+	display: inline-block;
+	padding: @typo-button-padding;
+	text-decoration: none;
+
+	&:hover {
+		background-color: var(--typo-button-hover-background-color);
+		color: var(--typo-button-color);
+		text-decoration: none;
+	}
+}
