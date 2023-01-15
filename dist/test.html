@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Typography.less 示例文件</title>
+		<title>Typo.Less Example</title>
 		<link href="./typo.less.css" rel="stylesheet" />
 	</head>
 	<body class="typo">
-		<h1>Typography.less 示例文件 - Djot 中文文檔</h1>
+		<h1><mark>Typography.less</mark> Example <span class="typo-subtitle">Djot 中文文檔</span></h1>
 		<p>
-			Djot (/dʒɑt/) 是一种由 John MacFarlane 教授创造的轻型标记语法。 它从 <a href="http://commonmark.org/">CommonMark</a> 中派生出大部分的功能，不过它修复了一些让 CommonMark 语法复杂且难以有效解析的问题，并且它的功能也比 CommonMark 更加全面，支持定义列表、脚注、表格、一些新的内联格式（如插入、删除、突出显示、上标、下标等）、数学、智能标点符号、可应用在任何属性的元素，以及用于块级、内联及原始内容的通用容器。该项目最初是为了实现 John MacFarlane 教授在 <a href="http://johnmacfarlane.net/beyond-markdown.html">Beyond Markdown</a> 中提出的一些想法。
+			<b>Djot</b> (/dʒɑt/) 是一种由 John MacFarlane 教授创造的轻型标记语法。 它从 <a href="http://commonmark.org/">CommonMark</a> 中派生出大部分的功能，不过它修复了一些让 CommonMark 语法复杂且难以有效解析的问题，并且它的功能也比 CommonMark 更加全面，支持定义列表、脚注、表格、一些新的内联格式（如插入、删除、突出显示、上标、下标等）、数学、智能标点符号、可应用在任何属性的元素，以及用于块级、内联及原始内容的通用容器。该项目最初是为了实现 John MacFarlane 教授在 <a href="http://johnmacfarlane.net/beyond-markdown.html">Beyond Markdown</a> 中提出的一些想法。
 		</p>
 		<ul>
 			<li><a href="http://djot.net/">官方网站</a></li>
@@ -22,8 +22,8 @@
 			<li>如果你是 Markdown 的使用者，你可以看看同样由我们翻译的 <a href="#快速开始">给 Markdown 用户的快速开始</a>。</li>
 		</ul>
 
-		<div class="index">
-			<h2>目录</h2>
+		<div class="typo-index">
+			<h1>Index</h1>
 			<ul>
 				<li>
 					<a href="#语法定义">Djot 的语法定义</a>
@@ -199,6 +199,23 @@
 			</ul>
 		</div>
 
+		<div class="typo-imgbox">
+			<img src="https://cdn.hk01.com/di/media/images/283772/org/2ac6f9c7e820d6688ee968f441cba637.png/q2-33VVv2dyPgO12Yy73oW3fLwgO2niHsBYomLAWKJg">
+			<div class="typo-imgbox-title">
+				這是一張來自「天氣之子」的桌布。
+			</div>
+		</div>
+
+		<div class="typo-videobox">
+			<video controls>
+				<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+				<p>你的瀏覽器可能不支持查看視頻。</p>
+			</video>
+			<div class="typo-videobox-title">
+				這是一個視頻測試！
+			</div>
+		</div>
+
 		<h2 id="语法定义">Djot 的语法定义</h2>
 		<div>
 			<h3 id="语法定义.内联语法">内联语法</h3>
@@ -209,21 +226,21 @@
 						在 Djot 中，大多数内联语法是由环绕内联内容的开闭定界符定义的。例如，将其定义为强调的内容，或定义为链接文本。 管理内联容器的「优先级」的基本原则是：最先被关闭的容器优先级较高。 这是因为容器不能重叠，所以一旦一个开启的内联容器被关闭，在开启者和关闭者之间的任何潜在开启者都被视为普通文本，而不被视为内联语法。例如：
 					</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>_This is *regular_ not strong* emphasis</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;em&gt;This is *regular&lt;/em&gt; not strong* emphasis&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>这是因为第一个「_」打开的强调先被第二个「_」关闭，而这时第一个 「*」就不再有资格打开强调。不过在以下代码中：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>*This is _strong* not regular_ emphasis</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;strong&gt;This is _strong&lt;/strong&gt; not regular_ emphasis&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>和上方正好相反！依此类推，在链接中也是一样的情况</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>[Link *](url)*</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;a href="url"&gt;Link *&lt;/a&gt;*&lt;/p&gt;</code></pre>
 					</div>
@@ -252,14 +269,14 @@
 					<div>
 						内联链接在 [ … ] 分隔符后面输入圆括号，圆括号内部包含目标链接。 链接文本末尾的「]」和定义目标链接的开启「(」之间不应有空格。示例如下：
 					
-						<div class="code">			
+						<div class="typo-code">			
 							<pre><div>Djot</div><code>[Example](http://example.com/)</code></pre>
 							<pre><div>HTML</div><code>&lt;p&gt;&lt;a href="http://example.com/"&gt;Example&lt;/a&gt;&lt;/p&gt;</code></pre>
 						</div>
 
 						<p>目标链接的 URL 可以换行，在此情况下，换行符和任何前导或尾随空格都被忽略，并且这些行被连接在一起。</p>
 
-						<div class="code">			
+						<div class="typo-code">			
 							<pre><div>Djot</div><code>[Example](http://example.com/?id=1145
 14)</code></pre>
 							<pre><div>HTML</div><code>&lt;p&gt;&lt;a href="http://example.com/?id=114514"&gt;Example&lt;/a&gt;&lt;/p&gt;</code></pre>
@@ -270,7 +287,7 @@
 					<div>
 						<p>参考链接在 [ … ] 后面接上 [ … ] 标签，而不是圆括号。和内联链接一样，两个方括号中间不应有空格。</p>
 
-						<div class="code">			
+						<div class="typo-code">			
 							<pre><div>Djot</div><code>[Example][ExLink]
 
 [ExLink]: http://example.com/</code></pre>
@@ -279,14 +296,14 @@
 
 						<p>参考标签应当在文档中的某处定义：请参阅下面的参考链接定义。 但是，链接的解析是「本地」的，不依赖于标签是否被定义：</p>
 
-						<div class="code">			
+						<div class="typo-code">			
 							<pre><div>Djot</div><code>[Example][ExLink]</code></pre>
 							<pre><div>HTML</div><code>&lt;p&gt;&lt;a&gt;Example&lt;/a&gt;&lt;/p&gt;</code></pre>
 						</div>
 
 						<p>如果标签为空，则链接文本也被视为参考标签：</p>
 
-						<div class="code">			
+						<div class="typo-code">			
 							<pre><div>Djot</div><code>[Example][]
 
 [Example]: http://example.com/</code></pre>
@@ -299,7 +316,7 @@
 				<div>
 					<p>图片类似于链接，不过在链接前面有一个「!」前缀。和链接一样，具有内联和引用变体。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>![picture of a cat](cat.jpg)
 
 ![picture of a cat][cat]
@@ -317,7 +334,7 @@
 				<div>
 					<p>包含在 <...> 中的 URL 或电子邮件地址会自动成为超链接。 尖括号之间的内容按字面意思处理（不能使用反斜杠转义）。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>&lt;https://pandoc.org/lua-filters&gt;
 &lt;me@example.com&gt;</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;a href="https://pandoc.org/lua-filters"&gt;https://pandoc.org/lua-filters&lt;/a&gt;
@@ -329,7 +346,7 @@
 				<div>
 					<p>内联代码以一串连续的反引号字符 「`」开头，以等长的连续反引号字符字符串结束。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>``Verbatim with a backtick` character``
 `Verbatim with three backticks ``` character`</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;code&gt;Verbatim with a backtick` character&lt;/code&gt;
@@ -339,14 +356,14 @@
 					<p>反引号之间的内容被视为内联代码（反引号转义在此处不起作用）。<br>
 						如果内容想要以反引号字符开始或结束，只需在开始或结束反引号与内容之间加入一个空格：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>`` `foo` ``</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;code&gt;`foo`&lt;/code&gt;&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>如果要解析为内联的内容在遇到结束反引号字符串之前结束，则内联代码文本将一直扩展到末尾：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>`foo bar</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;code&gt;foo bar&lt;/code&gt;&lt;/p&gt;</code></pre>
 					</div>
@@ -356,7 +373,7 @@
 				<div>
 					<p>斜体内容由「_」字符分隔，粗体内容则由「*」字符分隔。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>_emphasized text_
 
 *strong emphasis*</code></pre>
@@ -366,7 +383,7 @@
 
 					<p>开始强调的「_」或「*」只有在后面不是直接接空格时才可以开始强调，而用于关闭强调的「_」或「*」也需要在前面不直接有空格，并且除了定界符以外还有其他字符的情况下，才能关闭强调：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>_ Not emphasized (spaces). _
 
 ___ (not an emphasized `_` character)</code></pre>
@@ -376,14 +393,14 @@ ___ (not an emphasized `_` character)</code></pre>
 
 					<p>强调也可以嵌套：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>__emphasis inside_ emphasis_</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;em&gt;&lt;em&gt;emphasis inside&lt;/em&gt; emphasis&lt;/em&gt;&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>花括号可以强制将「_」或「*」解释为开始或结束强调（也就是说，可以无视上上段文本）。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>{_ this is emphasized, despite the spaces! _}</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;em&gt; this is emphasized, despite the spaces! &lt;/em&gt;&lt;/p&gt;</code></pre>
 					</div>
@@ -393,7 +410,7 @@ ___ (not an emphasized `_` character)</code></pre>
 				<div>
 					<p>「{=」和「=}」之间的内联内容会被视为高亮文本（即 HTML 中的 &lt;mark&gt; 标签）。请注意，「{」和「}」是强制性的：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>This is {=highlighted text=}.</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;This is &lt;mark&gt;highlighted text&lt;/mark&gt;.&lt;/p&gt;</code></pre>
 					</div>
@@ -403,14 +420,14 @@ ___ (not an emphasized `_` character)</code></pre>
 				<div>
 					<p>上标使用「^」作为分隔符，而下标则用「~」作为分隔符：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>H~2~O and djot^TM^</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O and djot&lt;sup&gt;TM&lt;/sup&gt;&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>可以使用花括号，但并不是必须的：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>H{~one two buckle my shoe~}O</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;H&lt;sub&gt;one two buckle my shoe&lt;/sub&gt;O&lt;/p&gt;</code></pre>
 					</div>
@@ -420,7 +437,7 @@ ___ (not an emphasized `_` character)</code></pre>
 				<div>
 					<p>要将内联内容标记为插入，请使用「{+」及「+}」包裹之，而要将内联内容标记为删除，则使用「{-」及「-}」包裹之。请注意，「{」和「}」是强制性的：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>My boss is {-mean-}{+nice+}.</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;My boss is &lt;del&gt;mean&lt;/del&gt;&lt;ins&gt;nice&lt;/ins&gt;.&lt;/p&gt;</code></pre>
 					</div>
@@ -430,7 +447,7 @@ ___ (not an emphasized `_` character)</code></pre>
 				<div>
 					<p>直双引号（"）及单引号（'）会被解析为弯引号。Djot 非常擅长从上下文中找出正确的引号方向：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>"Hello," said the spider.
 "'Shelob' is my name."</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&ldquo;Hello,&rdquo; said the spider.
@@ -439,21 +456,21 @@ ___ (not an emphasized `_` character)</code></pre>
 
 					<p>不过，可以透过使用大括号将引号标记为开头或结尾以覆盖它的启发式方法：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>'}Tis Socrates' season to be jolly!</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&rsquo;Tis Socrates&rsquo; season to be jolly!&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>如果你想使用直引号，请使用反斜杠转义：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>5\'11\"</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;5'11"&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>三个句点「...」被解析为省略号，三个连字符「---」被解析为破折号，两个连字符「--」被解析为连接号：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>57--33 oxen---and no sheep...</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;57&ndash;33 oxen&mdash;and no sheep&hellip;&lt;/p&gt;</code></pre>
 					</div>
@@ -465,7 +482,7 @@ ___ (not an emphasized `_` character)</code></pre>
 				<div>
 					<p>要在文档中包含 LaTeX 数学，请将 LaTeX 放置在内联代码块内，并在其前面加上「$」（用于内联数学）或「$$」（用于数学容器）：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>Einstein derived $`e=mc^2`.
 Pythagoras proved
 $$` x^n + y^n = z^z `</code></pre>
@@ -479,7 +496,7 @@ Pythagoras proved
 				<div>
 					<p>使用脚注参考，只需要在方括号中加入「^」符号。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>Here is the reference.[^foo]
 
 [^foo]: And here is the note.</code></pre>
@@ -503,7 +520,7 @@ Pythagoras proved
 
 					要获得硬换行符（由 HTML 的 &lt;br&gt; 表示的那种），请使用反斜杠 + 换行符：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>This is a soft
 break and this is a hard\
 break.</code></pre>
@@ -517,14 +534,14 @@ break.&lt;/p&gt;</code></pre>
 				<div>
 					<p>在两个花括号中被两个「%」包裹住的内容将被忽略并被视为注释，允许将注释添加到属性：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>{#ident % later we'll add a class %}</code></pre>
 						<pre><div>HTML</div><code></code></pre>
 					</div>
 
 					<p>但它也可以作为添加注释的通用方式，只需使用仅包含注释的属性符号：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>Foo bar {% This is a comment, spanning
 multiple lines %} baz.
 </code></pre>
@@ -536,7 +553,7 @@ multiple lines %} baz.
 				<div>
 					<p>可以通过在内容周围加上「:」符号来包含表情符号：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>My reaction is :+1: :smiley:.</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;My reaction is 👍 😃.&lt;/p&gt;</code></pre>
 					</div>
@@ -546,7 +563,7 @@ multiple lines %} baz.
 				<div>
 					<p>可以使用内联代码后跟 {=FORMAT} 来包含任何格式的原始内联内容：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>This is `&lt?php echo 'Hello world!' ?&gt;`{=html}.</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;This is &lt;?php echo 'Hello world!' ?&gt;.&lt;/p&gt;</code></pre>
 					</div>
@@ -558,7 +575,7 @@ multiple lines %} baz.
 				<div>
 					<p>方括号中不是链接或图像且紧跟属性的文本被视为 &lt;span&gt;：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>It can be helpful to [read the manual]{.big .red}.</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;It can be helpful to &lt;span class="big red"&gt;read the manual&lt;/span&gt;.&lt;/p&gt;</code></pre>
 					</div>
@@ -583,7 +600,7 @@ multiple lines %} baz.
 
 					<p>属性符号可以包含换行符，以下是示例：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>An attribute on _emphasized text_{#foo
 .bar .baz key="my value"}</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;An attribute on &lt;em class="bar baz" id="foo" key="my value"&gt;emphasized text&lt;/em&gt;&lt;/p&gt;</code></pre>
@@ -591,14 +608,14 @@ multiple lines %} baz.
 
 					<p>属性说明符可以“堆叠”，在这种情况下它们将被组合。 因此，</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>avant{lang=fr}{.blue}</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;&lt;span class="blue" lang="fr"&gt;avant&lt;/span&gt;&lt;/p&gt;</code></pre>
 					</div>
 
 					<p>和</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>avant{lang=fr .blue}</code></pre>
 						<pre><div>HTML</div><code>&lt;p&gt;An attribute on &lt;em class="bar baz" id="foo" key="my value"&gt;emphasized text&lt;/em&gt;&lt;/p&gt;</code></pre>
 					</div>
@@ -627,7 +644,7 @@ multiple lines %} baz.
 				<div>
 					<p>标题以一个或多个 # 字符序列开头，后跟空格。 # 字符的数量定义标题级别。 以下文本被解析为内联内容。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>## A level _two_ heading!</code></pre>
 						<pre><div>HTML</div><code>&lt;section id="A-level-two-heading"&gt;
 &lt;h2&gt;A level &lt;em&gt;two&lt;/em&gt; heading!&lt;/h2&gt;
@@ -638,7 +655,7 @@ multiple lines %} baz.
 
 					当遇到空行（或文档或封闭容器的末尾）时，标题结束。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code># A heading that
 # takes up
 # three lines
@@ -651,7 +668,7 @@ three lines&lt;/h1&gt;
 &lt;p>A paragraph, finally&lt;/p&gt;
 &lt;/section&gt;</code></pre>
 					</div>
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code># A heading that
 takes up
 three lines
@@ -667,7 +684,7 @@ A paragraph, finally.</code></pre>
 				<div>
 					<p>块引用是一个多行元素，每一行都以「>」开头，后跟一个空格或行尾。 块引用的内容（减去首字母「>」）被解析为块级内容。</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>> This is a block quote.
 >
 > 1. with a
@@ -687,7 +704,7 @@ list in it.
 
 					<p>与在 Markdown 中一样，可以「懒惰地」省略块引用内常规段落行中的 > 前缀，但在段落的第一行前面除外：</p>
 
-					<div class="code">			
+					<div class="typo-code">			
 						<pre><div>Djot</div><code>> This is a block
 quote.</code></pre>
 						<pre><div>HTML</div><code>&lt;blockquote&gt;
@@ -701,7 +718,7 @@ quote.&lt;/p&gt;
 				<div>
 					<p>列表项由列表标记和空格（或换行符）组成，相对于列表标记缩进。 例如：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>1.  This is a
  list item.
 
@@ -719,7 +736,7 @@ list item.&lt;/p&gt;
 
 					<p>段落第一行之后的段落行可以「懒惰地」省略缩进：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>1.  This is a
 list item.
 
@@ -798,7 +815,7 @@ list item.&lt;/p&gt;
 					<div>
 						<p>在定义列表项中，「:」 标记之后的第一行或多行被解析为内联内容并被视为定义的符号。 项目中包含的任何其他块都被假定为定义：</p>
 
-						<div class="code">
+						<div class="typo-code">
 							<pre><div>Djot</div><code>: orange
 
   A citrus fruit.</code></pre>
@@ -816,7 +833,7 @@ list item.&lt;/p&gt;
 				<div>
 					<p>列表只是一系列相同类型的列表项（上表中的每一行都定义了一个类型）。 请注意，更改有序列表样式或项目符号将停止一个列表并开始一个新列表。 因此，以下列表项被分为四个不同的列表：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>i) one
 i. one (style change)
 + bullet
@@ -845,7 +862,7 @@ bullet (style change)
 
 					<p>有时列表项的类型不明确。在这种情况下，如果可能的话，将以继续列表的方式解决问题。 例如：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>i. item
 j. next item</code></pre>
 						<pre><div>HTML</div><code>&lt;ol start="9" type="a"&gt;
@@ -862,7 +879,7 @@ next item
 
 					<p>有序列表的起始编号由第一项的编号决定，而后续的列表项的数量无关紧要：
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>5) five
 8) six</code></pre>
 						<pre><div>HTML</div><code>&lt;ol start="5"&gt;
@@ -877,7 +894,7 @@ six
 
 					<p>如果列表在项目之间或项目内部的块之间不包含空行，则该列表被归类为紧凑列表。 列表开头或结尾的空行不计入紧密度。</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>- one
 - two
 
@@ -903,7 +920,7 @@ sub
 
 					<p>不紧凑的清单是松的。 这种区别的预期意义在于：呈现紧凑列表时，项目之间的空间应该更小。</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>- one
 
 - two</code></pre>
@@ -922,7 +939,7 @@ sub
 				<div>
 					<p>代码块以一行三个或更多个连续的反引号开始，可以选择后跟一个语言说明符，但没有其他内容。 （语言说明符可以选择在前面和/或后面加上空格。）代码块到一行反引号或者文档或封闭块的末尾结束，反引号长度等于或大于开始反引号「围栏」。 其内容被解释为内联代码。 如果内容包含一行反引号，请务必选择更长的反引号字符串用作「围栏」：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>````
 This is how you do a code block:
 
@@ -940,7 +957,7 @@ x = 5 * 6
 
 					<p>这是一个代码块的示例，当它的父容器关闭时，该代码块将会隐式关闭：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>> ```
 > code in a
 > block quote
@@ -959,7 +976,7 @@ block quote
 				<div>
 					<p>包含三个或更多「*」或「-」 字符且没有其他任何内容（空格或制表符除外）的行将被视为分隔线（&lt;hr&gt; 在 HTML 中）。 与 Markdown 不同，分隔线可以缩进：</p>
 
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>Then they went to sleep.
 
       * * * *
@@ -975,7 +992,7 @@ When they woke up, ...</code></pre>
 				<div>
 					<p>带有「=FORMAT」的代码块通常会被解释为 FORMAT 中的原始内容，并以代码传递该格式输出。例如：</p>
 
-				<div class="code">
+				<div class="typo-code">
 						<pre><div>Djot</div><code>``` =html
 &lt;video width="320" height="240" controls&gt;
   &lt;source src="movie.mp4" type="video/mp4"&gt;
@@ -995,7 +1012,7 @@ When they woke up, ...</code></pre>
 				<div>
 					<p>一个 div 以一行三个或更多个连续的冒号开头，后面可以选择空格和类名（不过不可以有其他内容）。 它以至少与开头符号一样长的一行连续冒号，或包含块的末尾做结。</p>
 					<p>Div 內容是一个块级元素。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>::: warning
 Here is a paragraph.
 
@@ -1011,7 +1028,7 @@ And here is another.
 				<h4 id="语法定义.块级元素语法.表格">表格</h4>
 				<div>
 					<p>表格由一系列行组成。每行以「|」字符开头和结尾，并包含数个由「|」字符分割的单元格。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>| 1 | 2 |</code></pre>
 						<pre><div>HTML</div><code>&lt;table&gt;
 &lt;tr&gt;
@@ -1023,7 +1040,7 @@ And here is another.
 
 					<p>分隔线是一行，其中每个单元格由一个或多个「-」字符的序列组成，可选地以「:」字符作为前缀或后缀。</p>
 					<p>当遇到分隔线时，前一行被视为标题，并且该行和任何后续行的对齐方式由分隔线确定（直到找到新标题）。 分隔线本身不会为已解析的表格新增一行。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>| fruit  | price |
 |--------|------:|
 | apple  |     4 |
@@ -1051,7 +1068,7 @@ And here is another.
 						<li>如果它以「:」开头和结尾，则该列居中对齐</li>
 						<li>如果它既不以「:」开头也不以「:」结尾，则该列默认对齐</li>
 					</ul>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>| a  |  b |
 |----|:--:|
 | 1  | 2  |
@@ -1075,7 +1092,7 @@ And here is another.
 					<p>这里带有 a 和 b 的行是标题，左列默认对齐，右列居中对齐。 下一个实际行，包含 1 和 2，也是一个标题，其中左列左对齐，右列右对齐。 此对齐方式也适用于随后的行，包含 3 和 4。</p>
 
 					<p>表格不需要有标题。只需省略任何分隔线，或者（如果您需要指定列对齐方式）以分隔线开头：</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>|:--|---:|
 | x | 2  |</code></pre>
 						<pre><div>HTML</div><code>&lt;table&gt;
@@ -1088,7 +1105,7 @@ And here is another.
 					<p>表格单元格的内容被解析为内联，因为其中不可能有块级内容。
 
 					<p>Djot 足够聪明，可以逐字识别反斜杠转义的管道和管道。这些不算作单元格分隔符：</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>| just two \| `|` | cells in this table |</code></pre>
 						<pre><div>HTML</div><code>&lt;table&gt;
 &lt;tr&gt;
@@ -1102,7 +1119,7 @@ And here is another.
 				<h4 id="语法定义.块级元素语法.参考链接定义">参考链接定义</h4>
 				<div>
 					<p>参考链接定义由方括号中的参考标签、冒号、空格（或换行符）和 URL 组成。 URL 可以分成多行（在这种情况下，这些行将被连接起来，并删除任何前导或尾随空格）。 URL 的任何块都不能包含内部空格。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>[google]: https://google.com
 
 [product page]: http://example.com?item=983459873087120394870128370
@@ -1112,7 +1129,7 @@ And here is another.
 					<p>这没有对引用标签进行大小写规范化，定义为 [link] 的引用不能用作 [Link]，而在 Markdown 中可以。</p>
 
 					<p>参考定义的属性被转移到链接：</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>{title=foo}
 [ref]: /url
 
@@ -1121,7 +1138,7 @@ And here is another.
 					</div>
 
 					<p>生成一个带有文本「ref」、URL /url 和标题「foo」的链接。 但是，如果在链接和引用定义上都定义了相同的属性，则链接上的属性会覆盖引用定义上的属性。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>{title=foo}
 [ref]: /url
 
@@ -1134,7 +1151,7 @@ And here is another.
 				<h4 id="语法定义.块级元素语法.脚注">脚注</h4>
 				<div>
 					<p>脚注由脚注引用和冒号组成，然后是注释的内容，会缩进到引用开始所在列之外的任何列。 注释的内容被解析为块级内容。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>Here's the reference.[^foo]
 
 [^foo]: This is a note
@@ -1161,7 +1178,7 @@ with two paragraphs.&lt;/p&gt;
 					</div>
 
 					<p>与块引号和列表项一样，段落中的后续行可以「懒惰地」省略缩进：</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>Here's the reference.[^foo]
 
 [^foo]: This is a note
@@ -1187,7 +1204,7 @@ be indented, at least in the first line.&lt;a href="#fnref1" role="doc-backlink"
 				<h4 id="语法定义.块级元素语法.块级属性">块级属性</h4>
 				<div>
 					<p>要将属性附加到块级元素，请将属性放在块之前的行中。 块属性与内联属性具有相同的语法，但它们必须放在一行中。 可以使用重复的属性说明符，属性可以叠加。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>{#water}
 {.important .large}
 Don't forget to turn off the water!
@@ -1204,7 +1221,7 @@ Don't forget to turn off the water!
 				<h4 id="语法定义.块级元素语法.标题链接">标题链接</h4>
 				<div>
 					<p>标识符会自动添加到没有附加明确标识符的任何标题中。 标识符是通过获取标题的文本内容，删除标点符号（「_」和「-」除外），将空格替换为「-」，如果需要专一性，则可添加数字后缀。</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>## My heading + auto-identifier</code></pre>
 						<pre><div>HTML</div><code>&lt;section id="My-heading-auto-identifier"&gt;
 &lt;h2&gt;My heading + auto-identifier&lt;/h2&gt;
@@ -1212,7 +1229,7 @@ Don't forget to turn off the water!
 					</div>
 
 					<p>但是，在大多数情况下，您不需要知道分配给标题的标识符，因为会为所有标题创建隐式链接引用。 因此，要链接到同一文档中标题为“简介”的标题，可以简单地使用参考链接：</p>
-					<div class="code">
+					<div class="typo-code">
 						<pre><div>Djot</div><code>See the [Epilogue][].
 
     * * * *
@@ -1245,7 +1262,7 @@ Don't forget to turn off the water!
 			<div>
 				<p>在 Djot 中，你需要在块级元素的周围留空一行，如下：</p>
 
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>This is some text.
 ## My next heading</code></pre>
 					<pre><div>Djot</div><code>This is some text.
@@ -1255,7 +1272,7 @@ Don't forget to turn off the water!
 
 				<p>否则块级元素会被显示成一般的文字。另一个用代码块的例子：</p>
 
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>This is some text.
 ``` lua
 local foo = bar.baz or false
@@ -1273,7 +1290,7 @@ local foo = bar.baz or false
 			<h3 id="快速开始.列表">列表</h3>
 			<div>
 				<p>一个特别的地方在于：列表前你也需要一个空行，即便它是一个子项。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>- one
   - two
   - three</code></pre>
@@ -1289,7 +1306,7 @@ local foo = bar.baz or false
 				<p>在 Djot 中没有 Setext 样式的标题写法（带下划线），只有 ATX （前面带「#」）的样式。</p>
 				<p>标题内容可以延伸到多行，并且前面可以没有「#」（这是标题后面必须留空一行的原因！）。</p>
 
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>貌似不支持多行标题？</code></pre>
 					<pre><div>Djot</div><code>## This is a single
 ## level-2 heading
@@ -1302,7 +1319,7 @@ level-3 heading</code></pre>
 			<h3 id="快速开始.代码块">代码块</h3>
 			<div>
 				<p>没有缩进的代码块，只有「```」。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>    前面有四个空格，我就成为了一个代码块咯~
 
 ```
@@ -1323,7 +1340,7 @@ level-3 heading</code></pre>
 			<h3>强调</h3>
 			<div>
 				<p>使用单个「_」包住内容表示斜体，使用单个「*」包住内容表示粗体</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>*Italic* / _Italic_
 **Bold** / __Bold__
 ***Italic Bold*** / ___Italic Bold___
@@ -1337,7 +1354,7 @@ _*Italic Bold*_ / *_Italic Bold_*</code></pre>
 			<h3 id="快速开始.链接">链接</h3>
 			<div>
 				<p>没有为链接添加标题的特殊语法，你需要使用通用属性。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>[link](http://example.com "Go to my website")
 					</code></pre>
 					<pre><div>Djot</div><code>[link](http://example.com){title="Go to my website"}</code></pre>
@@ -1347,7 +1364,7 @@ _*Italic Bold*_ / *_Italic Bold_*</code></pre>
 			<h3 id="快速开始.强制换行符">强制换行符</h3>
 			<div>
 				<p>在 Djot 中，你需要在换行符之前使用反斜杠，而不是敲两下空白键。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>A new  
 line.</code></pre>
 					<pre><div>Djot</div><code>A new\
@@ -1358,7 +1375,7 @@ line.</code></pre>
 			<h3 id="快速开始.原始HTML">插入原始 HTML 代码</h3>
 			<div>
 				<p>在 Djot 中，你需要将其标记为原始 HTML，而不是把 Djot 文件当 HTML 文件写。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown</div><code>&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
 					<pre><div>Djot</div><code>单行
 `&lt;h1&gt;Hello World&lt;/h1&gt;`{=html}
@@ -1373,7 +1390,7 @@ line.</code></pre>
 			<h3 id="快速开始.表格">表格</h3>
 			<div>
 				<p>和许多 Markdown 实现（如：CommonMark）不同，表格在每行开头和结尾都需要一个「|」字符。</p>
-				<div class="code">			
+				<div class="typo-code">			
 					<pre><div>Markdown（第三方实现）</div><code>a|b
 -|-
 1|2</code></pre>

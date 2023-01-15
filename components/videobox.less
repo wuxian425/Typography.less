@@ -1,0 +1,43 @@
+
+/*
+	Typography.less - VideoBox
+*/
+
+// 亮與暗模式
+:root {
+	--typo-imgbox-background-color: @typo-imgbox-background-color;
+	--typo-imgbox-box-shadow: @typo-imgbox-box-shadow;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--typo-imgbox-background-color: @typo-imgbox-background-color-dark;
+		--typo-imgbox-box-shadow: @typo-imgbox-box-shadow-dark;
+	}
+}
+
+.@{typo-class-name}-videobox {
+	box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+
+	background-color: var(--typo-imgbox-background-color);
+	border-radius: @typo-imgbox-border-radius;
+	box-shadow: var(--typo-imgbox-box-shadow);
+	line-height: 0.99;
+	margin: @typo-imgbox-margin-y @typo-imgbox-margin-x;
+	width: calc(100% - (@typo-imgbox-margin-x * 2));
+
+	video {
+		border-radius: inherit;
+		box-shadow: none;
+		width: 100%;
+	}
+
+	.@{typo-class-name}-videobox-title {
+		font-size: @typo-imgbox-title-font-size;
+		line-height: 1.2;
+		margin: 0;
+		padding: @typo-imgbox-title-padding;
+		text-align: center;
+	}
+}

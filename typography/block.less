@@ -7,10 +7,12 @@
 :root {
 	--typo-title-border-bottom: @typo-title-border-bottom;
 	--typo-title-before-content-color: @typo-title-before-content-color;
+	--typo-title-subtitle-color: @typo-title-subtitle-color;
 	--typo-code-background-color: @typo-code-background-color;
 	--typo-code-box-shadow: @typo-code-box-shadow;
 	--typo-hr-border: @typo-hr-border;
 	--typo-img-box-shadow: @typo-img-box-shadow;
+	--typo-video-box-shadow: @typo-video-box-shadow;
 	--typo-blockquote-border-left: @typo-blockquote-border-left;
 }
 
@@ -18,10 +20,12 @@
 	:root {
 		--typo-title-border-bottom: @typo-title-border-bottom-dark;
 		--typo-title-before-content-color: @typo-title-before-content-color-dark;
+		--typo-title-subtitle-color: @typo-title-subtitle-color-dark;
 		--typo-code-background-color: @typo-code-background-color-dark;
 		--typo-code-box-shadow: @typo-code-box-shadow-dark;
 		--typo-hr-border: @typo-hr-border-dark;
 		--typo-img-box-shadow: @typo-img-box-shadow-dark;
+		--typo-video-box-shadow: @typo-video-box-shadow-dark;
 		--typo-blockquote-border-left: @typo-blockquote-border-left-dark;
 	}
 }
@@ -30,18 +34,27 @@
 	// 標題
 	h1, h2, h3, h4, h5, h6 {
 		border-bottom: var(--typo-title-border-bottom);
+		font-family: @typo-title-font-family;
 		font-weight: @typo-title-font-weight;
+		letter-spacing: @typo-title-letter-spacing;
 		line-height: @typo-title-line-height;
 		margin-top: @typo-title-margin-top;
 		margin-bottom: @typo-title-margin-bottom;
 	}
 
-	h1:before {color: var(--typo-title-before-content-color); content: @typo-title-h1-before-content;}
-	h2:before {color: var(--typo-title-before-content-color); content: @typo-title-h2-before-content;}
-	h3:before {color: var(--typo-title-before-content-color); content: @typo-title-h3-before-content;}
-	h4:before {color: var(--typo-title-before-content-color); content: @typo-title-h4-before-content;}
-	h5:before {color: var(--typo-title-before-content-color); content: @typo-title-h5-before-content;}
-	h6:before {color: var(--typo-title-before-content-color); content: @typo-title-h6-before-content;}
+	h1 {font-size: @typo-title-h1-font-size;}
+	h2 {font-size: @typo-title-h2-font-size;}
+	h3 {font-size: @typo-title-h3-font-size;}
+	h4 {font-size: @typo-title-h4-font-size;}
+	h5 {font-size: @typo-title-h5-font-size;}
+	h6 {font-size: @typo-title-h6-font-size;}
+
+	h1:before {color: var(--typo-title-before-content-color); content: @typo-title-h1-before-content; font-size: @typo-title-before-font-size;}
+	h2:before {color: var(--typo-title-before-content-color); content: @typo-title-h2-before-content; font-size: @typo-title-before-font-size;}
+	h3:before {color: var(--typo-title-before-content-color); content: @typo-title-h3-before-content; font-size: @typo-title-before-font-size;}
+	h4:before {color: var(--typo-title-before-content-color); content: @typo-title-h4-before-content; font-size: @typo-title-before-font-size;}
+	h5:before {color: var(--typo-title-before-content-color); content: @typo-title-h5-before-content; font-size: @typo-title-before-font-size;}
+	h6:before {color: var(--typo-title-before-content-color); content: @typo-title-h6-before-content; font-size: @typo-title-before-font-size;}
 
 	// 標題縮進
 	h1 + div,
@@ -55,6 +68,14 @@
 		padding: @typo-title-indent-padding;
 	}
 
+
+	// 子標題
+	.@{typo-class-name}-subtitle {
+		color: var(--typo-title-subtitle-color);
+		font-size: @typo-title-subtitle-font-size;
+		font-weight: @typo-title-subtitle-font-weight;
+	}
+
 	// 代碼塊
 	pre {
 		box-sizing: border-box;
@@ -64,7 +85,6 @@
 		border-radius: @typo-code-border-radius;
 		box-shadow: var(--typo-code-box-shadow);
 		overflow-x: auto;
-		padding: @typo-code-padding;
 
 		// 代碼塊本體
 		code {
@@ -74,6 +94,7 @@
 			display: block;
 			font-family: @typo-code-font-family;
 			font-size: @typo-code-font-size;
+			padding: @typo-code-padding;
 			overflow-y: auto;
 			// 代碼滾動條（Firefox系）
 			scrollbar-width: thin;
@@ -105,6 +126,12 @@
 		box-shadow: var(--typo-img-box-shadow);
 	}
 
+	// 視頻
+	video {
+		border-radius: @typo-video-border-radius;
+		box-shadow: var(--typo-video-box-shadow);
+	}
+
 	// 引用
 	blockquote {
 		border-left: var(--typo-blockquote-border-left);
@@ -119,8 +146,8 @@
 	}
 
 	// 列表
-	ul {
-		padding-top: 2px;
-		padding-left: 20px;
+	ul, ol {
+		padding-top: @typo-list-padding-top;
+		padding-left: @typo-list-padding-left;
 	}
 }

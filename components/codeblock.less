@@ -6,51 +6,56 @@
 // 亮與暗模式
 :root {
 	--typo-codeblock-background-color: @typo-codeblock-background-color;
+	--typo-codeblock-box-shadow: @typo-codeblock-box-shadow;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--typo-codeblock-background-color: @typo-codeblock-background-color-dark;
+		--typo-codeblock-box-shadow: @typo-codeblock-box-shadow-dark;
 	}
 }
 
-.code {
+.@{typo-class-name}-code {
 	box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 
 	background-color: var(--typo-codeblock-background-color);
+	border-radius: @typo-codeblock-border-radius;
+	box-shadow: var(--typo-codeblock-box-shadow);
 	display: flex;
 	margin: @typo-codeblock-margin;
 	padding: @typo-codeblock-padding;
-}
 
-.code:before,
-.code:after {
-	display: table;
-	content: '';
-	clear: both;
-}
+	&:before,
+	&:after {
+		display: table;
+		content: '';
+		clear: both;
+	}
 
-.code pre {
-	align-items: stretch;
-	flex: 1;
-	justify-items: stretch;
-	padding: @typo-codeblock-pre-padding;
-}
+	pre {
+		align-items: stretch;
+		border-radius: 0;
+		flex: 1;
+		justify-items: stretch;
+		padding: @typo-codeblock-pre-padding;
 
-.code pre code {
-	display: block;
-	min-height: 80px;
-	max-height: 200px;
-	padding: 4px;
-}
+		&:nth-child(1) {
+			border-right: 1px solid #DDDDDD;
+		}
 
-.code pre:nth-child(1) {
-	border-right: 1px solid #DDDDDD;
-}
+		code {
+			display: block;
+			min-height: 80px;
+			max-height: 200px;
+			padding: 4px;
+		}
+	}
 
-.code div {
-	color: #888888;
-	font-family: 'Inconsolata', Consolas, monospace;
-	font-size: 10px;
+	div {
+		color: #888888;
+		font-family: 'Inconsolata', Consolas, monospace;
+		font-size: 10px;
+	}
 }

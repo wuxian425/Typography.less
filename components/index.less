@@ -17,10 +17,14 @@
 }
 
 @media (min-width: @typo-index-min-width) {
-	.@{typo-class-name} {
-		.index {
+	body.@{typo-class-name} {
+		.@{typo-class-name}-index {
+			box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				
 			background-color: var(--typo-index-background-color);
 			box-shadow: var(--typo-index-box-shadow);
+			max-width: @typo-index-width;
 			overflow-x: scroll;
 			overflow-y: auto;
 			padding: @typo-index-padding;

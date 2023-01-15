@@ -7,12 +7,18 @@
 :root {
 	--typo-background-color: @typo-background-color;
 	--typo-text-color: @typo-text-color;
+	--typo-selection-background-color: @typo-selection-background-color;
+	--typo-selection-color: @typo-selection-color;
+	--typo-selection-text-shadow: @typo-selection-text-shadow;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--typo-background-color: @typo-background-color-dark;
 		--typo-text-color: @typo-text-color-dark;
+		--typo-selection-background-color: @typo-selection-background-color-dark;
+		--typo-selection-color: @typo-selection-color-dark;
+		--typo-selection-text-shadow: @typo-selection-text-shadow-dark;
 	}
 }
 
@@ -25,6 +31,7 @@
 	background-color: var(--typo-background-color);
 	color: var(--typo-text-color);
 	font-family: @typo-font-family;
+	font-weight: @typo-font-weight;
 	font-size: @typo-font-size;
 	letter-spacing: @typo-letter-spacing;
 	line-height: @typo-line-height;
@@ -40,6 +47,18 @@
 body.@{typo-class-name} {
 	margin-left: auto;
 	margin-right: auto;
-
 	max-width: @typo-container-max-width;
+}
+
+@media (min-width: @typo-index-min-width) {
+	body.@{typo-class-name} {
+		position: relative;
+		right: @typo-right;
+	}
+}
+
+body.@{typo-class-name} *::selection {
+	background-color: var(--typo-selection-background-color);
+	color: var(--typo-selection-color);
+	text-shadow: var(--typo-selection-text-shadow);
 }

@@ -46,11 +46,12 @@
 	}
 
 	// 標記
-	mark {
+	mark, em {
 		background-color: var(--typo-mark-background-color);
 		border-radius: @typo-mark-border-radius;
+		color: var(--typo-mark-color);
 		display: inline-block;
-		line-height: 1;
+		line-height: @typo-mark-line-height;
 		margin: @typo-mark-margin;
 		padding: @typo-mark-padding;
 	}

@@ -11,9 +11,30 @@
 */
 /*
 	引入字體，
-	預設的內文字體為 Loto + Noto Sans SC （思源黑體），
+	預設的內文字體為 Hanken Grotesk + Noto Sans SC （思源黑體），
 	代碼字體為 Inconsolata。
 */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hankengrotesk/v4/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_Ncs2Za4Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hankengrotesk/v4/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_NcgWZa4Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hankengrotesk/v4/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_NcVGFa4Q.ttf) format('truetype');
+}
 @font-face {
   font-family: 'Inconsolata';
   font-style: normal;
@@ -23,25 +44,18 @@
   src: url(https://fonts.gstatic.com/s/inconsolata/v31/QldgNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLYxYWI2qfdm7Lpp4U8aRo.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHvxk.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/lato/v23/S6u9w4BMUTPHh6UVew8.ttf) format('truetype');
-}
-@font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/notosanssc/v26/k3kXo84MPvpLmixcA63oeALhLw.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosanssc/v26/k3kIo84MPvpLmixcA63oeALZ3aGt9w.otf) format('opentype');
 }
 @font-face {
   font-family: 'Noto Sans SC';
@@ -54,6 +68,9 @@
 /* 塊狀元素 */
 /* 行內元素 */
 /* 組件 */
+/*
+		為 Index 創造佔用（當元素被設置在 Body，且 Index 顯示時）
+	*/
 @layer typographys, components;
 /* Module */
 @layer typographys {
@@ -63,21 +80,25 @@
   :root {
     --typo-title-border-bottom: 1px solid #EEEEEE;
     --typo-title-before-content-color: #DDDDDD;
-    --typo-code-background-color: #F4F4F4;
+    --typo-title-subtitle-color: #BBBBBB;
+    --typo-code-background-color: #EEEEEE;
     --typo-code-box-shadow: 0;
     --typo-hr-border: 1px solid #CCCCCC;
-    --typo-img-box-shadow: 0 2px 4px #DDDDDD;
-    --typo-blockquote-border-left: 4px solid #CCCCCC;
+    --typo-img-box-shadow: 0 2px 6px #EEEEEE;
+    --typo-video-box-shadow: 0 2px 6px #EEEEEE;
+    --typo-blockquote-border-left: 3px solid #CCCCCC;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --typo-title-border-bottom: 1px solid #666666;
-      --typo-title-before-content-color: #DDDDDD;
+      --typo-title-before-content-color: #777777;
+      --typo-title-subtitle-color: #AAAAAA;
       --typo-code-background-color: #484848;
       --typo-code-box-shadow: 0;
-      --typo-hr-border: 1px solid #CCCCCC;
-      --typo-img-box-shadow: 0 2px 4px #DDDDDD;
-      --typo-blockquote-border-left: 4px solid #CCCCCC;
+      --typo-hr-border: 1px solid #888888;
+      --typo-img-box-shadow: 0 2px 6px #EEEEEE;
+      --typo-video-box-shadow: 0 2px 6px #EEEEEE;
+      --typo-blockquote-border-left: 3px solid #AAAAAA;
     }
   }
   .typo h1,
@@ -87,34 +108,60 @@
   .typo h5,
   .typo h6 {
     border-bottom: var(--typo-title-border-bottom);
+    font-family: inherit;
     font-weight: 700;
-    line-height: 0.9;
-    margin-top: 28px;
-    margin-bottom: 16px;
+    letter-spacing: 0.75px;
+    line-height: 1.05;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+  }
+  .typo h1 {
+    font-size: 2.75rem;
+  }
+  .typo h2 {
+    font-size: 2.25rem;
+  }
+  .typo h3 {
+    font-size: 1.75rem;
+  }
+  .typo h4 {
+    font-size: 1.5rem;
+  }
+  .typo h5 {
+    font-size: 1.25rem;
+  }
+  .typo h6 {
+    font-size: 1rem;
   }
   .typo h1:before {
     color: var(--typo-title-before-content-color);
     content: '# ';
+    font-size: 0.75em;
   }
   .typo h2:before {
     color: var(--typo-title-before-content-color);
     content: '## ';
+    font-size: 0.75em;
   }
   .typo h3:before {
     color: var(--typo-title-before-content-color);
     content: '### ';
+    font-size: 0.75em;
   }
   .typo h4:before {
     color: var(--typo-title-before-content-color);
     content: '#### ';
+    font-size: 0.75em;
   }
   .typo h5:before {
     color: var(--typo-title-before-content-color);
     content: '##### ';
+    font-size: 0.75em;
   }
   .typo h6:before {
     color: var(--typo-title-before-content-color);
     content: '';
+    font-size: 0.75em;
   }
   .typo h1 + div,
   .typo h2 + div,
@@ -122,25 +169,30 @@
   .typo h4 + div,
   .typo h5 + div,
   .typo h6 + div {
-    margin-top: 16px;
-    margin-left: 16px;
+    margin-top: 1rem;
+    margin-left: 1rem;
     padding: 0;
+  }
+  .typo .typo-subtitle {
+    color: var(--typo-title-subtitle-color);
+    font-size: 0.75em;
+    font-weight: 500;
   }
   .typo pre {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-color: var(--typo-code-background-color);
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: var(--typo-code-box-shadow);
     overflow-x: auto;
-    padding: 16px;
   }
   .typo pre code {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     display: block;
     font-family: 'Inconsolata', Consolas, 'Noto Sans SC', monospace;
-    font-size: 14px;
+    font-size: 0.75rem;
+    padding: 1rem;
     overflow-y: auto;
     scrollbar-width: thin;
   }
@@ -152,27 +204,32 @@
     border: none;
     border-top: var(--typo-hr-border);
     height: 1px;
-    margin: 16px 0;
+    margin: 1rem 0;
   }
   .typo p {
-    margin: 6px 2px;
+    margin: 0.75rem 2ch;
   }
   .typo img {
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: var(--typo-img-box-shadow);
+  }
+  .typo video {
+    border-radius: 6px;
+    box-shadow: var(--typo-video-box-shadow);
   }
   .typo blockquote {
     border-left: var(--typo-blockquote-border-left);
-    padding: 12px;
+    padding: 1em;
   }
   .typo footer {
     color: #BBBBBB;
-    font-size: 12px;
-    margin: 16px 4px;
+    font-size: 0.75rem;
+    margin: 1rem 0;
   }
-  .typo ul {
-    padding-top: 2px;
-    padding-left: 20px;
+  .typo ul,
+  .typo ol {
+    padding-top: 0;
+    padding-left: 2.75ch;
   }
   /*
 	Typography.less - Global Style
@@ -180,11 +237,17 @@
   :root {
     --typo-background-color: #F8F8F8;
     --typo-text-color: #363636;
+    --typo-selection-background-color: #DDDDDD;
+    --typo-selection-color: inherit;
+    --typo-selection-text-shadow: none;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --typo-background-color: #363636;
       --typo-text-color: #F2F2F2;
+      --typo-selection-background-color: #666666;
+      --typo-selection-color: inherit;
+      --typo-selection-text-shadow: none;
     }
   }
   .typo {
@@ -193,25 +256,37 @@
     -moz-box-sizing: border-box;
     background-color: var(--typo-background-color);
     color: var(--typo-text-color);
-    font-family: 'Lato', 'Noto Sans SC', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.9px;
-    line-height: 1.4;
-    padding: 24px 16px;
+    font-family: 'Hanken Grotesk', 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 1.05px;
+    line-height: 1.5rem;
+    padding: 2rem 1.75rem;
   }
   .typo * {
-    transition: 0.3s;
+    transition: 0.4s;
   }
   body.typo {
     margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
   }
+  @media (min-width: 1320px) {
+    body.typo {
+      position: relative;
+      right: calc(300px / -2);
+    }
+  }
+  body.typo *::selection {
+    background-color: var(--typo-selection-background-color);
+    color: var(--typo-selection-color);
+    text-shadow: var(--typo-selection-text-shadow);
+  }
   /*
 	Typography.less - Inline Style
 */
   :root {
-    --typo-a-color: #909095;
+    --typo-a-color: #707088;
     --typo-a-hover-color: #888888;
     --typo-b-text-shadow: 0 1px 4px #DDDDDD;
     --typo-mark-background-color: #f8aa66;
@@ -219,11 +294,11 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --typo-a-color: #AAAAAA;
+      --typo-a-color: #B0B0CC;
       --typo-a-hover-color: #888888;
       --typo-b-text-shadow: 0 1px 4px #DDDDDD;
-      --typo-mark-background-color: #fbcc77;
-      --typo-mark-color: #121212;
+      --typo-mark-background-color: #f68844;
+      --typo-mark-color: #EEEEEE;
     }
   }
   .typo a {
@@ -242,13 +317,15 @@
   .typo i {
     font-style: italic;
   }
-  .typo mark {
+  .typo mark,
+  .typo em {
     background-color: var(--typo-mark-background-color);
-    border-radius: 4px;
+    border-radius: 6px;
+    color: var(--typo-mark-color);
     display: inline-block;
-    line-height: 1;
-    margin: 2px 4px;
-    padding: 2px 6px;
+    line-height: 0.75;
+    margin: 0 2px;
+    padding: 0 6px;
   }
   .typo small {
     font-size: 12px;
@@ -262,20 +339,20 @@
   :root {
     --typo-button-background-color: #FBFBFB;
     --typo-button-hover-background-color: #F6F6F6;
-    --typo-button-box-shadow: 0 2px 4px #DDDDDD;
+    --typo-button-box-shadow: 0 2px 2px #DDDDDD;
     --typo-button-color: inherit;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --typo-button-background-color: #646464;
       --typo-button-hover-background-color: #565656;
-      --typo-button-box-shadow: 0 2px 4px #484848;
+      --typo-button-box-shadow: 0 2px 2px #484848;
       --typo-button-color: inherit;
     }
   }
   .typo-btn {
     background-color: var(--typo-button-background-color);
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: var(--typo-button-box-shadow);
     color: var(--typo-button-color);
     display: inline-block;
@@ -291,81 +368,159 @@
 	Typography.less - CodeBlock
 */
   :root {
-    --typo-codeblock-background-color: #F4F4F4;
+    --typo-codeblock-background-color: #EEEEEE;
+    --typo-codeblock-box-shadow: 0 2px 6px #F2F2F2;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --typo-codeblock-background-color: #484848;
+      --typo-codeblock-box-shadow: 0 2px 6px #424242;
     }
   }
-  .code {
+  .typo-code {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-color: var(--typo-codeblock-background-color);
+    border-radius: 6px;
+    box-shadow: var(--typo-codeblock-box-shadow);
     display: flex;
-    margin: 8px 0;
-    padding: 12px 8px;
+    margin: 1.25rem 0;
+    padding: 0.75rem 0.5rem;
   }
-  .code:before,
-  .code:after {
+  .typo-code:before,
+  .typo-code:after {
     display: table;
     content: '';
     clear: both;
   }
-  .code pre {
+  .typo-code pre {
     align-items: stretch;
+    border-radius: 0;
     flex: 1;
     justify-items: stretch;
-    padding: 8px;
+    padding: 0.25rem 0.75rem;
   }
-  .code pre code {
+  .typo-code pre:nth-child(1) {
+    border-right: 1px solid #DDDDDD;
+  }
+  .typo-code pre code {
     display: block;
     min-height: 80px;
     max-height: 200px;
     padding: 4px;
   }
-  .code pre:nth-child(1) {
-    border-right: 1px solid #DDDDDD;
-  }
-  .code div {
+  .typo-code div {
     color: #888888;
     font-family: 'Inconsolata', Consolas, monospace;
     font-size: 10px;
+  }
+  /*
+	Typography.less - ImageBox
+*/
+  :root {
+    --typo-imgbox-background-color: #EEEEEE;
+    --typo-imgbox-box-shadow: 0 2px 6px #F2F2F2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --typo-imgbox-background-color: #484848;
+      --typo-imgbox-box-shadow: 0 2px 6px #424242;
+    }
+  }
+  .typo-imgbox {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: var(--typo-imgbox-background-color);
+    border-radius: 6px;
+    box-shadow: var(--typo-imgbox-box-shadow);
+    line-height: 0.99;
+    margin: 1rem 0;
+    width: calc(100% - (0 * 2));
+  }
+  .typo-imgbox img {
+    border-radius: inherit;
+    box-shadow: none;
+    width: 100%;
+  }
+  .typo-imgbox .typo-imgbox-title {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+    padding: 6px;
+    text-align: center;
   }
   /*
 	Typography.less - Index
 */
   :root {
     --typo-index-background-color: #F6F6F6;
-    --typo-index-box-shadow: 4px 0 16px #EEEEEE;
+    --typo-index-box-shadow: 0;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --typo-index-background-color: #424242;
-      --typo-index-box-shadow: 4px 0 16px #484848;
+      --typo-index-box-shadow: 0;
     }
   }
-  @media (min-width: 1540px) {
-    .typo .index {
+  @media (min-width: 1320px) {
+    body.typo .typo-index {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
       background-color: var(--typo-index-background-color);
       box-shadow: var(--typo-index-box-shadow);
+      max-width: 300px;
       overflow-x: scroll;
       overflow-y: auto;
-      padding: 20px;
+      padding: 2rem;
       scrollbar-width: thin;
-      width: 220px;
+      width: 300px;
       z-index: 1;
       position: fixed;
       top: 0;
       left: 0;
       bottom: 0;
     }
-    .typo .index:hover {
+    body.typo .index:hover {
       left: 0;
     }
-    .typo .index::-webkit-scrollbar {
+    body.typo .index::-webkit-scrollbar {
       width: 8px;
       height: 8px;
     }
+  }
+  /*
+	Typography.less - VideoBox
+*/
+  :root {
+    --typo-imgbox-background-color: #EEEEEE;
+    --typo-imgbox-box-shadow: 0 2px 6px #F2F2F2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --typo-imgbox-background-color: #484848;
+      --typo-imgbox-box-shadow: 0 2px 6px #424242;
+    }
+  }
+  .typo-videobox {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: var(--typo-imgbox-background-color);
+    border-radius: 6px;
+    box-shadow: var(--typo-imgbox-box-shadow);
+    line-height: 0.99;
+    margin: 1rem 0;
+    width: calc(100% - (0 * 2));
+  }
+  .typo-videobox video {
+    border-radius: inherit;
+    box-shadow: none;
+    width: 100%;
+  }
+  .typo-videobox .typo-videobox-title {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+    padding: 6px;
+    text-align: center;
   }
 }

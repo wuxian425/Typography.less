@@ -12,7 +12,7 @@ to import Typography.less。
 
 ## Develop
 
-You need `Node.js`, `npm` and `Less`.
+You need [`Node.js`](https://nodejs.org/), `npm` and `Less`.
 If you don't have `Less`, input `npm i -g less` to your terminal.
 
 ### Packing
