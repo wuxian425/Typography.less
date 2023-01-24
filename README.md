@@ -1,10 +1,12 @@
+<img src="./dist/logo.svg" width="100%" height="auto"/>
+
 <h1 align="left">Typography.less</h1>
 
 <h4 align="right">A CSS file makes the article easier to read.</h4>
 
 ## Use
 
-Download `dist/typo.less.css` and add it to your project，then use:
+Download `dist/typo.less.css` and add it to your project, then use:
 ```
 <link href="[Path]/typo.less.css" rel="stylesheet" />
 ```
@@ -24,4 +26,57 @@ Input `npm run build`, you will get:
 ```
 and the `typo.less.css` is in `/dist`.
 
-###### 2023 BobYang.
+### Logo
+```JSX
+<div
+  style={{
+    height: '100%',
+    width: '100%',
+    backgroundImage: 'radial-gradient(circle at 15px 15px, lightgray 2%, transparent 0%), radial-gradient(circle at 45px 45px, lightgray 2%, transparent 0%)',
+    backgroundSize: '60px 60px',
+    backgroundColor: '#F9F9F9',
+    borderRadius: '6px',
+    fontFamily: 'Inter, consolas',
+    fontSize: '16px',
+    fontWeight: 400,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    position: 'relative',
+  }}
+>
+  <div 
+    style={{
+      background: '#f8aa66',
+      borderRadius: '6px',
+      boxShadow: '0 2px 4px #CCCCCC',
+      color: '#121212',
+      fontSize: '48px',
+      fontWeight: 700,
+      lineHeight: 0.75,
+      marginBottom: '16px',
+      padding: '0 6px',
+    }}
+  >
+  Typography.less
+  </div>
+
+  <div>
+  A CSS file makes the article easier to read. 
+  </div>
+
+  <small style={{
+    background: '#F9F9F9',
+    color: '#CCCCCC',
+    fontSize: '12px',
+    position: 'absolute',
+    bottom: '5vh',
+  }}
+  >
+    2023 BobYang.
+  </small>
+</div>
+```
+
+###### 2023 [BobYang](https://github.com/wuxian425).
