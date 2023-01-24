@@ -6,7 +6,7 @@
 	License: MIT
 */
 
-@import "node_modules/normalize.css/normalize.css";
+@import (less) "node_modules/normalize.css/normalize.css";
 
 /* Customize */
 @import "customize.less";
@@ -15,16 +15,16 @@
 
 /* Module */
 @layer typographys {
-	@import "typography/block.less";
-	@import "typography/global.less";
-	@import "typography/inline.less";
+	@import "src/typography/block.less";
+	@import "src/typography/global.less";
+	@import "src/typography/inline.less";
 }
 
 /* Components */
 @layer components {
-	@import "components/button.less";
-	@import "components/codeblock.less";
-	@import "components/imagebox.less";
-	@import "components/index.less";
-	@import "components/videobox.less";
+	@import "src/components/button.less";
+	@import "src/components/codeblock.less";
+	@import "src/components/imagebox.less";
+	@import "src/components/index.less";
+	@import "src/components/videobox.less";
 }
